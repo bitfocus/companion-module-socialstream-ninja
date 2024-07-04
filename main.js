@@ -21,7 +21,7 @@ class SocialStreamInstance extends InstanceBase {
 
 		this.connected = null
 		this.states = {}
-		this.streams = []
+
 		this.initWebSocket()
 		this.initActions()
 		this.initFeedbacks()
@@ -30,7 +30,7 @@ class SocialStreamInstance extends InstanceBase {
 
 	async destroy() {
 		this.states = {}
-		this.streams = []
+
 		if (this.ws !== undefined) {
 			this.ws.close(1000)
 			delete this.ws
@@ -119,7 +119,7 @@ class SocialStreamInstance extends InstanceBase {
 					this.connected = false
 					this.updateStatus(InstanceStatus.ConnectionFailure)
 					if (data?.code == 'ENOTFOUND') {
-						this.log('error', `Unable to reach ${serverUrl}`)
+						this.log('error', `Unable to reach Social Stream Ninja`)
 					} else {
 						this.log('error', `WebSocket ${data}`)
 					}
@@ -129,14 +129,14 @@ class SocialStreamInstance extends InstanceBase {
 				}
 			})
 		} else {
-			this.log('warn', `Session ID required to connect to SocialStream.Ninja, please add one in the module settings`)
+			this.log('warn', `Session ID required to connect to Social Stream Ninja, please add one in the module settings`)
 			this.updateStatus(InstanceStatus.BadConfig, 'Missing Session ID')
 		}
 	}
 
 	messageReceivedFromWebSocket(data) {
 		let message = JSON.parse(data)
-		console.log(message)
+		//console.log(message)
 
 		if (message?.queueLength > -1) {
 			this.setVariableValues({ queue_size: message.queueLength })
@@ -149,7 +149,7 @@ class SocialStreamInstance extends InstanceBase {
 			value: value ?? 'null',
 			apiid: this.config.sessionID,
 		}
-		console.log(JSON.stringify(object))
+		//console.log(JSON.stringify(object))
 		this.ws.send(JSON.stringify(object))
 	}
 }

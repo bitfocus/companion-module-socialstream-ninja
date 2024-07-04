@@ -9,8 +9,8 @@ export function getActions() {
 			},
 		},
 		clearAll: {
-			name: 'Stop and clear all messages (except Pinned)',
-			description: 'Clear all messages from the overlay',
+			name: 'Stop and clear all messages',
+			description: 'Clear all non-pinned messages from the overlay',
 			options: [],
 			callback: (action) => {
 				this.sendRequest('clearAll', false)
