@@ -1,7 +1,8 @@
 {
-	"name": "your-module-name",
-	"version": "0.1.0",
+	"name": "socialstream-ninja",
+	"version": "1.0.0",
 	"main": "main.js",
+	"type": "module",
 	"scripts": {
 		"format": "prettier -w .",
 		"package": "companion-module-build"
@@ -9,10 +10,11 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/bitfocus/companion-module-your-module-name.git"
+		"url": "git+https://github.com/bitfocus/companion-module-socialstream-ninja.git"
 	},
 	"dependencies": {
-		"@companion-module/base": "~1.7.0"
+		"@companion-module/base": "~1.8.0",
+		"ws": "^8.18.0"
 	},
 	"devDependencies": {
 		"@companion-module/tools": "^1.4.2"

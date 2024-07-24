@@ -1,16 +1,16 @@
 {
-	"id": "your-module-name",
-	"name": "your-module-name",
-	"shortname": "module-shortname",
-	"description": "A short one line description of your module",
-	"version": "0.0.0",
+	"id": "socialstream-ninja",
+	"name": "socialstream-ninja",
+	"shortname": "socialstream",
+	"description": "Control and monitor Social Stream Ninja.",
+	"version": "1.0.0",
 	"license": "MIT",
-	"repository": "git+https://github.com/bitfocus/companion-module-your-module-name.git",
-	"bugs": "https://github.com/bitfocus/companion-module-your-module-name/issues",
+	"repository": "git+https://github.com/bitfocus/companion-module-socialstream-ninja.git",
+	"bugs": "https://github.com/bitfocus/companion-module-socialstream-ninja/issues",
 	"maintainers": [
 		{
-			"name": "Your name",
-			"email": "Your email"
+			"name": "Bryce Seifert",
+			"email": "bryceapps@icloud.com"
 		}
 	],
 	"runtime": {
@@ -20,7 +20,7 @@
 		"entrypoint": "../main.js"
 	},
 	"legacyIds": [],
-	"manufacturer": "Your company",
-	"products": ["Your product"],
-	"keywords": []
+	"manufacturer": "Social Stream",
+	"products": ["Ninja"],
+	"keywords": ["Video", "Social", "Stream", "Chat"]
 }
