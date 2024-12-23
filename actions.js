@@ -4,7 +4,7 @@ export function getActions() {
 			name: 'Clear Current Featured Message',
 			description: 'Clear the currently featured message from the overlay',
 			options: [],
-			callback: (action) => {
+			callback: () => {
 				this.sendRequest('clearOverlay', false)
 			},
 		},
@@ -12,7 +12,7 @@ export function getActions() {
 			name: 'Stop and clear all messages',
 			description: 'Clear all non-pinned messages from the overlay',
 			options: [],
-			callback: (action) => {
+			callback: () => {
 				this.sendRequest('clearAll', false)
 			},
 		},
@@ -20,7 +20,7 @@ export function getActions() {
 			name: 'Next in Queue',
 			description: 'Advance to the next featured message in the queue',
 			options: [],
-			callback: (action) => {
+			callback: () => {
 				this.sendRequest('nextInQueue', false)
 			},
 		},
@@ -28,7 +28,7 @@ export function getActions() {
 			name: 'Toggle auto-show',
 			description: 'Toggle auto-featuring messages as they come in',
 			options: [],
-			callback: (action) => {
+			callback: () => {
 				this.sendRequest('autoShow', 'toggle')
 			},
 		},
@@ -36,7 +36,7 @@ export function getActions() {
 			name: 'Feature next un-featured',
 			description: 'Feature th next un-featured message',
 			options: [],
-			callback: (action) => {
+			callback: () => {
 				this.sendRequest('feature', 'true')
 			},
 		},
