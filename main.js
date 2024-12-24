@@ -97,7 +97,6 @@ class SocialStreamInstance extends InstanceBase {
 					this.connected = true
 				}
 				this.updateStatus(InstanceStatus.Ok)
-
 				this.ws.send(`{"join": "${this.config.sessionID}", "out":1, "in":2}`)
 				this.sendRequest('getQueueSize')
 			})
@@ -143,14 +142,19 @@ class SocialStreamInstance extends InstanceBase {
 		}
 	}
 
-	sendRequest(action, value) {
-		let object = {
+	sendRequest(action, value, channel) {
+		let message = {
 			action: action ?? 'null',
-			value: value ?? 'null',
 			apiid: this.config.sessionID,
 		}
-		//console.log(JSON.stringify(object))
-		this.ws.send(JSON.stringify(object))
+		if (value !== null) {
+			message.value = value
+		}
+		if (channel !== null) {
+			message.out = channel
+		}
+		//console.log(JSON.stringify(message))
+		this.ws.send(JSON.stringify(message))
 	}
 }
 
