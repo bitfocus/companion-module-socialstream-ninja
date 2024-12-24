@@ -19,6 +19,7 @@ Control and monitor [Social Stream Ninja](https://socialstream.ninja/landing).
 - Close Poll
 - Waitlist Controls
 - Text to Speech (TTS) Controls
+- Send Chat Message
 
 ### Available Variables
 
