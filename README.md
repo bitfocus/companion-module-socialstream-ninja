@@ -11,7 +11,7 @@ See [HELP.md](./companion/HELP.md) and [LICENSE](./LICENSE)
   - Close Poll action
   - Reset Poll action
   - Send Chat Message action
-  - Wailist Controls action, with options for selecting a winner, resetting, highlighting, and more
+  - Waitlist Controls action, with options for selecting a winner, resetting, highlighting, and more
 
 ### v1.0.0
 
