@@ -105,12 +105,67 @@ export function getActions() {
 					choices: [
 						{ id: 'toggle', label: 'Toggle' },
 						{ id: 'on', label: 'On' },
-						{ id: 'off', label: 'Off' }
+						{ id: 'off', label: 'Off' },
 					],
 				},
 			],
 			callback: (action) => {
 				this.sendRequest('tts', `${action.options.value}`, `${action.options.channel}`)
+			},
+		},
+		sendChat: {
+			name: 'Send Chat Message',
+			description: 'Send a message to the chat, with various parameters',
+			options: [
+				{ type: 'textinput', label: 'Username', id: 'chatname', default: 'User', useVariables: true },
+				{ type: 'textinput', label: 'Message', id: 'chatmessage', default: 'This is a message!', useVariables: true },
+				{
+					type: 'dropdown',
+					label: 'Service Icon',
+					tooltip: 'Service icon will display next to the username',
+					id: 'type',
+					default: '',
+					choices: [
+						{ id: '', label: 'None' },
+						{ id: 'twitch', label: 'Twitch' },
+						{ id: 'youtube', label: 'YouTube' },
+						{ id: 'facebook', label: 'Facebook' },
+						{ id: 'discord', label: 'Discord' },
+						{ id: 'slack', label: 'Slack' },
+						{ id: 'zoom', label: 'Zoom' },
+					],
+				},
+				{
+					type: 'textinput',
+					label: 'User Avatar (Image URL)',
+					tooltip: 'Optional, will use default if left blank',
+					id: 'chatimg',
+					default: 'https://avatars.githubusercontent.com/u/98669070?v=4',
+					useVariables: true,
+				},
+				{
+					type: 'checkbox',
+					label: 'Question',
+					tooltip: 'Adds question styling to the chat message',
+					id: 'question',
+					default: false,
+				},
+			],
+			callback: async (action) => {
+				let chat = {
+					chatname: await this.parseVariablesInString(action.options.chatname),
+					chatmessage: await this.parseVariablesInString(action.options.chatmessage),
+					type: action.options.type,
+					chatimg: await this.parseVariablesInString(action.options.chatimg),
+					question: action.options.question,
+				}
+				try {
+					chat = JSON.stringify(chat)
+				} catch (e) {
+					this.log('error', `Error creating JSON from chat data: ${e}`)
+					return
+				}
+				this.sendRequest('extContent', `${chat}`)
 			},
 		},
 	}
