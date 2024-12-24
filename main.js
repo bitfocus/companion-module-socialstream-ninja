@@ -135,7 +135,7 @@ class SocialStreamInstance extends InstanceBase {
 
 	messageReceivedFromWebSocket(data) {
 		let message = JSON.parse(data)
-		console.log(message)
+		//console.log(message)
 
 		if (message?.queueLength > -1) {
 			this.setVariableValues({ queue_size: message.queueLength })
