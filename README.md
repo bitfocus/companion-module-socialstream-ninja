@@ -4,6 +4,14 @@ See [HELP.md](./companion/HELP.md) and [LICENSE](./LICENSE)
 
 ## Changelog
 
+### v1.2.0
+
+- New
+  - Feedback: Featured Message Active
+  - Feedback: Queue Size
+  - Variable: featured_message
+  - Variable: featured_username
+
 ### v1.1.0
 
 - New
