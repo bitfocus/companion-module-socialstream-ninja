@@ -138,7 +138,25 @@ class SocialStreamInstance extends InstanceBase {
 		//console.log(message)
 
 		if (message?.queueLength > -1) {
+			this.states.queueLength = message.queueLength
 			this.setVariableValues({ queue_size: message.queueLength })
+			this.checkFeedbacks('queueSize')
+		} else if (message === false) {
+			this.states.featured = false
+			this.setVariableValues({
+				featured_username: 'None',
+				featured_message: 'None',
+			})
+			this.checkFeedbacks('featuredActive')
+		} else if (message?.clicked) {
+			this.states.featured = true
+			this.setVariableValues({
+				featured_username: message?.chatname ?? 'Unknown',
+				featured_message: message?.chatmessage ?? 'Unknown',
+			})
+			this.checkFeedbacks('featuredActive')
+		} else {
+			//console.log(message)
 		}
 	}
 
