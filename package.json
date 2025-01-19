@@ -1,6 +1,6 @@
 {
 	"name": "socialstream-ninja",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"main": "main.js",
 	"type": "module",
 	"scripts": {
@@ -15,12 +15,12 @@
 		"url": "git+https://github.com/bitfocus/companion-module-socialstream-ninja.git"
 	},
 	"dependencies": {
-		"@companion-module/base": "~1.11.2",
+		"@companion-module/base": "~1.11.3",
 		"ws": "^8.18.0"
 	},
 	"devDependencies": {
 		"@companion-module/tools": "^2.1.1",
-		"eslint": "^9.17.0",
+		"eslint": "^9.18.0",
 		"prettier": "^3.4.2"
 	},
 	"engines": {
